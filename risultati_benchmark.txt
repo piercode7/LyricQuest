@@ -1,0 +1,136 @@
+Descrizione Benchmark:
+Viene valutata l'efficacia del motore di ricerca confrontandolo con i risultati ottenuti da Google.
+Viene definito un insieme di query di prova che rappresentano le possibili richieste di ricerca degli utenti.
+Per ogni query, viene eseguita una ricerca su Google, limitando i risultati al sito 'genius.com' su cui abbiamo effettuato lo scraping:
+I primi 100 risultati di ricerca vengono estratti utilizzando l'API di ScaleSERP e salvati in file di testo separati per ciascuna query. Questi risultati rappresentano i documenti rilevanti per ciascuna query.
+Le stesse query vengono eseguite sul nostro motore di ricerca e vengono valutate due metriche di valutazione:
+-Precision@k: rapporto tra il numero di documenti rilevanti tra i primi k risultati restituiti dal nostro motore di ricerca e il numero di risultati restituiti. La precisione a k viene calcolata per k = 1, 2, ..., 10.
+-DCG: tiene conto della posizione dei documenti rilevanti nei risultati restituiti, applicando una penalizzazione logaritmica ai documenti rilevanti che compaiono più in basso nella lista dei risultati.
+____________________________________________________________________________________________
+
+UIN: love
+Query senza stopwords: love
+RISULTATI
+Precision@k TF-IDF senza stopwords: [1.0, 0.5, 0.33, 0.5, 0.4, 0.33, 0.29, 0.25, 0.22, 0.3]
+Precision@k BM25 senza stopwords: [0.0, 0.5, 0.33, 0.5, 0.4, 0.5, 0.57, 0.5, 0.44, 0.4]
+DCG TF-IDF senza stopwords: 3.40
+DCG BM25 senza stopwords: 5.02
+Precision@k TF-IDF con stopwords: [1.0, 0.5, 0.33, 0.5, 0.4, 0.33, 0.29, 0.25, 0.22, 0.3]
+Precision@k BM25 con stopwords: [1.0, 1.0, 0.67, 0.5, 0.6, 0.5, 0.43, 0.38, 0.33, 0.3]
+DCG TF-IDF con stopwords: 3.40
+DCG BM25 con stopwords: 6.29
+Word2Vec
+Precision@k Word2Vec: [1.0, 1.0, 1.0, 1.0, 0.8, 0.83, 0.86, 0.75, 0.67, 0.6]
+DCG Word2Vec: 8.78
+
+UIN: imagine
+Query senza stopwords: imagin
+RISULTATI
+Precision@k TF-IDF senza stopwords: [1.0, 1.0, 1.0, 0.75, 0.8, 0.67, 0.71, 0.75, 0.67, 0.6]
+Precision@k BM25 senza stopwords: [1.0, 1.0, 0.67, 0.75, 0.8, 0.67, 0.71, 0.62, 0.67, 0.6]
+DCG TF-IDF senza stopwords: 8.38
+DCG BM25 senza stopwords: 7.60
+Precision@k TF-IDF con stopwords: [1.0, 1.0, 1.0, 0.75, 0.8, 0.67, 0.71, 0.75, 0.67, 0.6]
+Precision@k BM25 con stopwords: [1.0, 0.5, 0.67, 0.5, 0.6, 0.67, 0.71, 0.62, 0.67, 0.6]
+DCG TF-IDF con stopwords: 8.38
+DCG BM25 con stopwords: 6.81
+Word2Vec
+Precision@k Word2Vec: [1.0, 1.0, 1.0, 1.0, 0.8, 0.67, 0.71, 0.62, 0.56, 0.5]
+DCG Word2Vec: 6.49
+
+UIN: this is a beautiful day
+Query senza stopwords: beauti dai
+RISULTATI
+Precision@k TF-IDF senza stopwords: [0.0, 0.5, 0.67, 0.5, 0.4, 0.5, 0.43, 0.38, 0.44, 0.5]
+Precision@k BM25 senza stopwords: [0.0, 0.5, 0.67, 0.5, 0.4, 0.33, 0.29, 0.25, 0.22, 0.2]
+DCG TF-IDF senza stopwords: 3.85
+DCG BM25 senza stopwords: 2.26
+Precision@k TF-IDF con stopwords: [0.0, 0.0, 0.33, 0.25, 0.2, 0.17, 0.29, 0.25, 0.22, 0.2]
+Precision@k BM25 con stopwords: [1.0, 0.5, 0.67, 0.5, 0.4, 0.5, 0.43, 0.5, 0.44, 0.4]
+DCG TF-IDF con stopwords: 0.36
+DCG BM25 con stopwords: 4.02
+Word2Vec
+Precision@k Word2Vec: [0.0, 0.5, 0.67, 0.75, 0.6, 0.67, 0.57, 0.5, 0.44, 0.5]
+DCG Word2Vec: 4.58
+
+UIN: man in the mirror
+Query senza stopwords: man mirror
+RISULTATI
+Precision@k TF-IDF senza stopwords: [1.0, 1.0, 1.0, 0.75, 0.6, 0.5, 0.43, 0.38, 0.33, 0.3]
+Precision@k BM25 senza stopwords: [1.0, 1.0, 1.0, 0.75, 0.6, 0.5, 0.43, 0.38, 0.33, 0.3]
+DCG TF-IDF senza stopwords: 5.63
+DCG BM25 senza stopwords: 5.63
+Precision@k TF-IDF con stopwords: [0.0, 0.0, 0.33, 0.25, 0.4, 0.33, 0.43, 0.38, 0.33, 0.3]
+Precision@k BM25 con stopwords: [1.0, 1.0, 1.0, 0.75, 0.6, 0.5, 0.57, 0.5, 0.44, 0.4]
+DCG TF-IDF con stopwords: 3.04
+DCG BM25 con stopwords: 5.63
+Word2Vec
+Precision@k Word2Vec: [0.0, 0.5, 0.67, 0.75, 0.8, 0.67, 0.57, 0.5, 0.44, 0.4]
+DCG Word2Vec: 3.62
+
+UIN: birds fly in different directions
+Query senza stopwords: bird fly differ direct
+RISULTATI
+Precision@k TF-IDF senza stopwords: [1.0]
+Precision@k BM25 senza stopwords: [1.0]
+DCG TF-IDF senza stopwords: 3.00
+DCG BM25 senza stopwords: 3.00
+Precision@k TF-IDF con stopwords: [1.0]
+Precision@k BM25 con stopwords: [1.0]
+DCG TF-IDF con stopwords: 3.00
+DCG BM25 con stopwords: 3.00
+Word2Vec
+Precision@k Word2Vec: [1.0]
+DCG Word2Vec: 3.00
+
+UIN: it's my life
+Query senza stopwords: my life
+RISULTATI
+Precision@k TF-IDF senza stopwords: [1.0, 0.5, 0.33, 0.25, 0.2, 0.17, 0.29, 0.25, 0.22, 0.3]
+Precision@k BM25 senza stopwords: [0.0, 0.0, 0.33, 0.25, 0.4, 0.33, 0.29, 0.25, 0.22, 0.2]
+DCG TF-IDF senza stopwords: 2.66
+DCG BM25 senza stopwords: 1.49
+Precision@k TF-IDF con stopwords: [0.0, 0.5, 0.67, 0.75, 0.6, 0.5, 0.43, 0.5, 0.44, 0.4]
+Precision@k BM25 con stopwords: [1.0, 1.0, 1.0, 1.0, 0.8, 0.67, 0.57, 0.5, 0.44, 0.4]
+DCG TF-IDF con stopwords: 4.10
+DCG BM25 con stopwords: 5.89
+Word2Vec
+Precision@k Word2Vec: [1.0, 1.0, 0.67, 0.75, 0.6, 0.67, 0.57, 0.62, 0.56, 0.5]
+DCG Word2Vec: 5.99
+
+UIN: speak
+Query senza stopwords: speak
+RISULTATI
+Precision@k TF-IDF senza stopwords: [1.0, 0.5, 0.67, 0.5, 0.6, 0.5, 0.57, 0.5, 0.44, 0.5]
+Precision@k BM25 senza stopwords: [1.0, 1.0, 0.67, 0.5, 0.6, 0.67, 0.57, 0.5, 0.44, 0.4]
+DCG TF-IDF senza stopwords: 3.51
+DCG BM25 senza stopwords: 4.82
+Precision@k TF-IDF con stopwords: [1.0, 0.5, 0.67, 0.5, 0.6, 0.5, 0.57, 0.5, 0.44, 0.5]
+Precision@k BM25 con stopwords: [1.0, 0.5, 0.67, 0.5, 0.6, 0.5, 0.43, 0.5, 0.44, 0.4]
+DCG TF-IDF con stopwords: 3.51
+DCG BM25 con stopwords: 4.03
+Word2Vec
+Precision@k Word2Vec: [1.0, 1.0, 0.67, 0.5, 0.4, 0.5, 0.57, 0.5, 0.44, 0.5]
+DCG Word2Vec: 6.40
+
+UIN: cash
+Query senza stopwords: cash
+RISULTATI
+Precision@k TF-IDF senza stopwords: [1.0, 1.0, 0.67, 0.5, 0.6, 0.5, 0.43, 0.38, 0.33, 0.3]
+Precision@k BM25 senza stopwords: [1.0, 1.0, 0.67, 0.75, 0.6, 0.5, 0.43, 0.38, 0.33, 0.3]
+DCG TF-IDF senza stopwords: 5.43
+DCG BM25 senza stopwords: 5.00
+Precision@k TF-IDF con stopwords: [1.0, 1.0, 0.67, 0.5, 0.6, 0.5, 0.43, 0.38, 0.33, 0.3]
+Precision@k BM25 con stopwords: [1.0, 0.5, 0.67, 0.75, 0.6, 0.5, 0.43, 0.38, 0.33, 0.3]
+DCG TF-IDF con stopwords: 5.43
+DCG BM25 con stopwords: 4.76
+Word2Vec
+Precision@k Word2Vec: [1.0, 1.0, 0.67, 0.5, 0.6, 0.5, 0.43, 0.5, 0.44, 0.4]
+DCG Word2Vec: 6.53
+
+UIN ricerca per titolo: birds
+Precision@k ricerca per titolo: [1.0, 1.0, 1.0, 1.0, 0.8, 0.67, 0.71, 0.62, 0.56, 0.6]
+DCG ricerca per titolo: 9.76
+UIN ricerca per artista: coldplay
+Precision@k ricerca per artista: [0.0, 0.5, 0.67, 0.75, 0.8, 0.83, 0.86, 0.88, 0.89, 0.9]
+DCG ricerca per artista: 9.05
