@@ -38,3 +38,13 @@ Per eseguire il benchmark premere il relativo pulsante in basso a sinistra.
 IMPORTANTE: per il corretto funzionamento del benchmark è necessario aver già creato almeno una volta entrambi gli inverted index con e senza stopwords.
 
 Una volta avviato il benchmark verrà aperto in automatico sul browser predefinito il pdf con i relativi dati. Viene inoltre creato il file di testo "risultati_benchmark.txt" con qualche informazione aggiuntiva.
+
+
+#Aggiornamento per novembre 2024
+# Nuovo progetto Python da avviare da zero con una versione precisa di python
+1. sudo apt install python3.10-venv python3.10-distutils
+2. python3.10 -m venv myenv
+3. source myenv/bin/activate
+4. python3.10 -m ensurepip --upgrade
+5. pip install -r requirements.txt
+
